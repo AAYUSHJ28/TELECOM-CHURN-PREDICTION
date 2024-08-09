@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Churn Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 40px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+
+input[type=text], .custom-select {
+width:100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+form, table{
+width:100%;
+}
+
+input[type=submit] {
+  background-color: #FB0000;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 230px;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+
+}
+
+.container {
+  border-radius: 5px;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+}
+
+.form_wrapper {
+  flex:1;
+  text-align: center;
+}
+label{
+color:white;
+}
+
+.col-label{
+width:25%;
+}
+
+
+
+</style>
+</head>
+<body>
+<h1> Telecom Customer Churn Predictor  </h1>
+
+<div class="container">
+  
+  
+
+  <form action="/send", name="send_data", method="post">
+      <table>
+
+<tr>
+    <td  class="col-label">  <label>Tenure</label></td>
+       <td  class="col-input">  <input type="text" name="tenure" placeholder="Tenure"></td></tr>
+
+<tr>
+    <td  class="col-label">  <label>MonthlyCharges</label></td>
+       <td  class="col-input">  <input type="text" name="MonthlyCharges" placeholder="MonthlyCharges"></td></tr>
+
+<tr>
+    <td  class="col-label">  <label>TotalCharges</label></td>
+       <td  class="col-input">  <input type="text" name="TotalCharges" placeholder="TotalCharges"></td></tr>
+
+<tr>
+    <td class="col-label"><label>Gender</label></td>
+   <td  class="col-input">
+        <select class="custom-select" name="gender">
+            <option value='1'>Male</option>
+            <option value='0'>Female</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>Senior-Citizen</label></td>
+      <td  class="col-input">
+        <select class="custom-select" name="SeniorCitizen">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>Partner</label></td>
+     <td  class="col-input">
+        <select class="custom-select" name="Partner">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>Dependents</label></td>
+     <td  class="col-input">
+        <select class="custom-select" name="Dependents">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>PhoneService</label></td>
+      <td  class="col-input">
+        <select class="custom-select" name="PhoneService">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+
+
+<tr>
+     <td  class="col-label"> <label>MultipleLines</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="MultipleLines">
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+            <option value="1">No phone service</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>InternetService</label></td>
+       <td  class="col-input">
+        <select class="custom-select" name="InternetService">
+            <option value="1">Fiber optic</option>
+            <option value="0">DSL</option>
+            <option value="2">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>OnlineSecurity</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="OnlineSecurity">
+            <option value="1">No internet service</option>
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>OnlineBackup</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="OnlineBackup">
+            <option value="1">No internet service</option>
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>DeviceProtection</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="DeviceProtection">
+            <option value="1">No internet service</option>
+            <option value="2">DeviceProtection_Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>TechSupport</label></td>
+       <td  class="col-input">
+        <select class="custom-select" name="TechSupport">
+            <option value="1">No internet service</option>
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>StreamingTV</label></td>
+       <td  class="col-input">
+        <select class="custom-select" name="StreamingTV">
+            <option value="1">No Internet service</option>
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>StreamingMovies</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="StreamingMovies">
+            <option value="1">No Internet service</option>
+            <option value="2">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>Contract</label></td>
+       <td  class="col-input">
+        <select class="custom-select" name="Contract">
+            <option value="0">Month-to-month</option>
+            <option value="2">Two year</option>
+            <option value="1">One year</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>PaperlessBilling</label></td>
+        <td  class="col-input">
+        <select class="custom-select" name="PaperlessBilling">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select></td></tr>
+
+<tr>
+     <td  class="col-label"> <label>PaymentMethod</label></td>
+      <td  class="col-input">
+        <select class="custom-select" name="PaymentMethod">
+            <option value="2">Electronic check</option>
+            <option value="3">Mailed check</option>
+            <option value="0">Bank transfer (automatic)</option>
+            <option value="1">Credit card (automatic)</option>
+        </select></td></tr>
+
+    <tr class="form_wrapper">
+     <td colspan='2'> <input type="submit" value="PREDICT CHURNER "/></td>
+    </tr>
+</table>
+{% if result %}
+		<p style="color:white">Result:{{ result }}</p>
+	{% endif %}  
+
+  </form>
+
+	
+
+</div>
+</body>
+</html>
