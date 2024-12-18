@@ -20,7 +20,7 @@ TotalCharges: Total charges incurred by the customer.
 Demographic and Service Details: Includes Gender, Senior Citizen, Partner, Dependents, PhoneService, etc.
 
 ## Output
-"*"Non-Churner: The customer is likely to stay with the company.
+* Non-Churner: The customer is likely to stay with the company.
 "*" Churner: The customer is likely to leave the company.
 
 ## Data and Model Details
