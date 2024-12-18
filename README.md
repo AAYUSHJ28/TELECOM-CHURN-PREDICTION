@@ -9,8 +9,10 @@ This project predicts customer churn in a telecom company using machine learning
 
 ## Getting Started
 ### Prerequisites
-Python 3.x
+Python 3.x 
+
 Flask
+
 Required libraries: numpy, pandas, matplotlib, sklearn
 
 ## Input Fields
